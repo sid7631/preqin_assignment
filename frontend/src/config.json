@@ -1,0 +1,80 @@
+{
+    "baseURL": "http://localhost:8000/api",
+    "endpoints": {
+        "investors": "/investors",
+        "commitments": "/investor/commitment"
+    },
+    "pageTitles": {
+        "main":"Preqin",
+        "investors": "Investors",
+        "commitments": "Commitments"
+    },
+    "breadcrumbs": {
+        "investors": [{"label":"PREQIN","href":null},{"label":"Investors","href":"/"}],
+        "commitments": [{"label":"PREQIN","href":null},{"label":"Investors","href":"/"},{"label":"Commitments","href":null}]
+    },
+    "investorsTableColumns": [
+        {
+            "id": "firm_id",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Firm ID"
+        },
+        {
+            "id": "firm_name",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Firm Name"
+        },
+        {
+            "id": "firm_type",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Firm Type"
+        },
+        {
+            "id": "date_added",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Date Added"
+        },
+        {
+            "id": "address",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Address"
+        }
+    ],
+    "commitmentsTableColumns": [
+        {
+            "id": "id",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "ID"
+        },
+        {
+            "id": "asset_class",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Asset Class"
+        },
+        {
+            "id": "firm_id",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Firm ID"
+        },
+        {
+            "id": "currency",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Currency"
+        },
+        {
+            "id": "amount",
+            "numeric": false,
+            "disablePadding": false,
+            "label": "Amount"
+        }
+    ]
+}
