@@ -1,3 +1,29 @@
+/**
+ * A wrapper component for displaying a table with sorting, pagination, and dense mode options.
+ *
+ * @component
+ * @example
+ * // Example usage of TableWrapper component
+ * <TableWrapper
+ *   title="Sample Table"
+ *   data={tableData}
+ *   headCells={tableHeadCells}
+ *   columns={tableColumns}
+ *   dense={true}
+ *   onClickCallback={handleClick}
+ * />
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.title - The title of the table.
+ * @param {Array} props.data - The data to be displayed in the table.
+ * @param {Array} props.headCells - The configuration of the table header cells.
+ * @param {Array} props.columns - The configuration of the table columns.
+ * @param {boolean} [props.dense=false] - Whether to display the table in dense mode.
+ * @param {function} [props.onClickCallback] - The callback function to be called when a row is clicked.
+ *
+ * @returns {JSX.Element} The rendered TableWrapper component.
+ */
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
@@ -15,6 +41,19 @@ import { visuallyHidden } from '@mui/utils';
 import NoDataOverlay from './NoDataOverlay';
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 
+
+
+
+/**
+ * Compares two values in descending order based on the specified property.
+ *
+ * @param {Object} a - The first object to compare.
+ * @param {Object} b - The second object to compare.
+ * @param {string} orderBy - The property to compare.
+ * @returns {number} - Returns -1 if `b[orderBy]` is less than `a[orderBy]`,
+ *                     1 if `b[orderBy]` is greater than `a[orderBy]`,
+ *                     or 0 if they are equal.
+ */
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
         return -1;
@@ -25,6 +64,13 @@ function descendingComparator(a, b, orderBy) {
     return 0;
 }
 
+/**
+ * Returns a comparator function based on the given order and orderBy parameters.
+ *
+ * @param {string} order - The order of sorting ('asc' or 'desc').
+ * @param {string} orderBy - The property to sort by.
+ * @returns {Function} - The comparator function.
+ */
 function getComparator(order, orderBy) {
     return order === 'desc'
         ? (a, b) => descendingComparator(a, b, orderBy)
@@ -181,6 +227,15 @@ const TableWrapper = (props) => {
             </Paper>
         </Box>
     );
+};
+
+TableWrapper.propTypes = {
+    title: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+    headCells: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
+    dense: PropTypes.bool,
+    onClickCallback: PropTypes.func
 };
 
 export default TableWrapper;

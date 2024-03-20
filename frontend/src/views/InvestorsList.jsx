@@ -8,6 +8,15 @@ import TableWrapper from '../components/TableWrapper';
 import { fetchInvestors } from '../slices/investorsSlice';
 import config from '../config';
 
+/**
+ * Renders a list of investors.
+ *
+ * @component
+ * @example
+ * return (
+ *   <InvestorsList />
+ * )
+ */
 const InvestorsList = () => {
     const dispatch = useDispatch();
     const investors = useSelector(state => state.investors);

@@ -37,6 +37,12 @@ const LabelTitle = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
 }));
 
+/**
+ * Renders the details of an investor.
+ *
+ * @component
+ * @returns {JSX.Element} InvestorDetails component
+ */
 const InvestorDetails = () => {
     const { firm_id } = useParams();
     const [assetClass, setAssetClass] = useState('');
@@ -167,5 +173,7 @@ const InvestorDetails = () => {
         </Container>
     );
 };
+
+
 
 export default InvestorDetails;

@@ -2,6 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
+/**
+ * Styled component for the grid overlay.
+ *
+ * @component
+ */
 const StyledGridOverlay = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
@@ -26,6 +31,12 @@ const StyledGridOverlay = styled('div')(({ theme }) => ({
   },
 }));
 
+/**
+ * Renders an overlay component to display when there is no data.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered NoDataOverlay component.
+ */
 const NoDataOverlay = () => {
   return (
     <StyledGridOverlay>
@@ -72,5 +83,9 @@ const NoDataOverlay = () => {
     </StyledGridOverlay>
   );
 }
+
+NoDataOverlay.propTypes = {
+  // Add prop types here
+};
 
 export default NoDataOverlay;

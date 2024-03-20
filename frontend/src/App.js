@@ -12,6 +12,11 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+/**
+ * The theme object for the application.
+ *
+ * @type {import('@mui/material').Theme}
+ */
 const theme = createTheme({
   typography: {
     fontFamily: ['-apple-system', 'BlinkMacSystemFont', 'sans-serif'].join(','),
@@ -28,6 +33,11 @@ const theme = createTheme({
   },
 });
 
+/**
+ * The main component of the application.
+ *
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
   return (
     <Provider store={store}>
