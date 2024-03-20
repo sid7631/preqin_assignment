@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Select, MenuItem, Box, Typography, Paper, Container, FormControl, Breadcrumbs } from '@mui/material';
+import { Select, MenuItem, Box, Typography, Paper, Container, FormControl, Breadcrumbs, InputLabel } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { getInvestorCommitment } from '../api';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
@@ -65,7 +65,6 @@ const InvestorDetails = () => {
         const response = await getInvestorCommitment(assetClass, parseInt(firm_id));
         const data = response.data;
         setCommitments(data);
-        console.log(data);
     };
 
     const getFormattedDate = (date) => {
@@ -133,25 +132,26 @@ const InvestorDetails = () => {
                                         <LabelTitle elevation={0}>Commitments</LabelTitle>
                                     </Grid>
                                     <Grid xs={12}>
-                                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                                            <Select
-                                                value={assetClass}
-                                                onChange={handleChange}
-                                                displayEmpty
-                                                inputProps={{ 'aria-label': 'Without label' }}
-                                                autoWidth
-                                            >
-                                                <MenuItem value="" disabled>
-                                                    Select Asset Class
-                                                </MenuItem>
-                                                <MenuItem value="pe">Private Equity</MenuItem>
-                                                <MenuItem value="pd">Private Debt</MenuItem>
-                                                <MenuItem value="re">Real Estate</MenuItem>
-                                                <MenuItem value="inf">Infrastructure</MenuItem>
-                                                <MenuItem value="nr">Natural Resources</MenuItem>
-                                                <MenuItem value="hf">Hedge Funds</MenuItem>
-                                            </Select>
-                                        </FormControl>
+
+                                    <FormControl sx={{ m: 1, minWidth: 240 }} size="small">
+                                        <InputLabel id="asset-select-label" data-testid="asset-selct-label"> Select Asset Class</InputLabel>
+                                        <Select
+                                            labelId="asset-select-label"
+                                            id="asset-select"
+                                            value={assetClass}
+                                            label="Select Asset Class"
+                                            autoWidth
+                                            onChange={handleChange}
+                                            data-testid="select-assetclass"
+                                        >
+                                                <MenuItem value="pe" key={1} data-testid="pe">Private Equity</MenuItem>
+                                                <MenuItem value="pd" key={2} data-testid="pd">Private Debt</MenuItem>
+                                                <MenuItem value="re" key={3} data-testid="re">Real Estate</MenuItem>
+                                                <MenuItem value="inf" key={4} data-testid="inf">Infrastructure</MenuItem>
+                                                <MenuItem value="nr" key={5} data-testid="nr">Natural Resources</MenuItem>
+                                                <MenuItem value="hf" key={6} data-testid="hf">Hedge Funds</MenuItem>
+                                        </Select>
+                                    </FormControl>
                                     </Grid>
                                     <Grid xs={12}>
                                         {commitments && <TableWrapper dense={false} data={commitments} title={''} headCells={config.commitmentsTableColumns} columns={config.commitmentsTableColumns} />}

@@ -107,13 +107,11 @@ const TableWrapper = (props) => {
 
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.data.length) : 0;
 
-    console.log(props.data, 'props.data');
-
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%' }} data-testid="table-wrapper">
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <Typography variant="h6" id="tableTitle" component="div" sx={{ padding: 2, textTransform: 'uppercase' }}>
+                    <Typography variant="h6" id="tableTitle" component="div" sx={{ padding: 2, textTransform: 'uppercase' }} data-testid="table-title">
                         {props.title}
                     </Typography>
                     <FormControl>
@@ -152,7 +150,7 @@ const TableWrapper = (props) => {
                                                 onClick={(event) => handleClick(event, row)}
                                                 role="checkbox"
                                                 tabIndex={-1}
-                                                key={row['id']}
+                                                key={index}
                                             >
                                                 {props.columns.map((column, index) => (
                                                     <TableCell key={index} align="left">

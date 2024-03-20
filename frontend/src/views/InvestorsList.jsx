@@ -24,7 +24,7 @@ const InvestorsList = () => {
     return (
         <Container maxWidth="lg">
             <Box sx={{ paddingBottom: 2 }}>
-                <Breadcrumbs aria-label="breadcrumb">
+                <Breadcrumbs aria-label="breadcrumb" data-testid="breadcrumbs">
                     {config.breadcrumbs.investors.map((item, index) => (
                         <Link
                             key={index}
