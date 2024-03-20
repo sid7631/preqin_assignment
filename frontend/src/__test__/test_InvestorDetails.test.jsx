@@ -17,8 +17,6 @@ jest.mock('../api', () => ({
 jest.mock('../slices/investorsSlice', () => ({
   fetchInvestors: jest.fn(),
 }));
-// jest.mock('../slices/fetchInvestors');
-// jest.mock('../api/investorApi');
 
 describe('InvestorDetails', () => {
   const mockFirmId = '2670';

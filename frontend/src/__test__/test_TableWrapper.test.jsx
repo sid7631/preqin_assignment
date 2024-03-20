@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent, configure } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import TableWrapper from '../components/TableWrapper';
 import config from '../config';
 
@@ -31,11 +31,6 @@ describe('TableWrapper', () => {
       "address": "19 Fifth Avenue, New York",
       "postal_code": "00347"
     },
-  ];
-
-  const mockHeadCells = [
-    { id: 'name', label: 'Name' },
-    { id: 'age', label: 'Age' },
   ];
 
   const mockOnClickCallback = jest.fn();
@@ -116,7 +111,5 @@ describe('TableWrapper', () => {
       postal_code: "37E"
     });
   });
-
-  // Add more tests for other functionality as needed
 
 });
